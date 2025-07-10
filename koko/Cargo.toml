@@ -7,5 +7,5 @@ edition = "2024"
 kokoros = { path = "../kokoros" }
 kokoros-openai = { path = "../kokoros-openai" }
 
-clap = { version = "4.5.39", features = ["derive"] }
-tokio = { version = "1.45.1", features = ["io-util", "rt-multi-thread"] }
+clap = { version = "4.5.41", features = ["derive"] }
+tokio = { version = "1.46.1", features = ["io-util", "rt-multi-thread"] }
