@@ -44,12 +44,12 @@ pub trait OrtBase {
     fn print_info(&self) {
         if let Some(session) = self.sess() {
             eprintln!("Input names:");
-            for input in &session.inputs {
-                eprintln!("  - {}", input.name);
+            for input in session.inputs() {
+                eprintln!("  - {}", input.name());
             }
             eprintln!("Output names:");
-            for output in &session.outputs {
-                eprintln!("  - {}", output.name);
+            for output in session.outputs() {
+                eprintln!("  - {}", output.name());
             }
 
             #[cfg(feature = "cuda")]

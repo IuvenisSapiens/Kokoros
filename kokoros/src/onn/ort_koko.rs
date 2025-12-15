@@ -2,7 +2,7 @@ use std::borrow::Cow;
 
 use ndarray::{ArrayBase, IxDyn, OwnedRepr};
 use ort::{
-    session::{Session, SessionInputValue, SessionInputs, SessionOutputs},
+    session::{Session, SessionInputValue, SessionInputs},
     value::{Tensor, Value},
 };
 use model_schema::v1_0_timestamped::DURATIONS;
@@ -54,7 +54,7 @@ impl ModelStrategy {
 
 impl OrtBase for OrtKoko {
     fn set_sess(&mut self, sess: Session) {
-        let output_count = sess.outputs.len();
+        let output_count = sess.outputs().len();
 
         let strategy = if output_count > 1 {
             tracing::info!("OrtKoko: Timestamped backend activated ({} outputs)", output_count);

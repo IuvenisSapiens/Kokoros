@@ -257,7 +257,7 @@ impl TTSKoko {
 
                     // Normal word span: sum its frame durations and advance the cursor.
                     if adj_start < adj_end && adj_end <= durations.len() {
-                        let mut word_frames: f32 = durations[adj_start..adj_end].iter().sum();
+                        let word_frames: f32 = durations[adj_start..adj_end].iter().sum();
 
                         // If your ONNX `durations` do NOT already include speed scaling, uncomment this line:
                         // word_frames /= speed_safe;
@@ -276,7 +276,7 @@ impl TTSKoko {
                 let chunk_audio_sec = chunk_audio.len() as f32 / 24_000.0; // audio duration (sec)
 
                 if t_end_sec > 0.0 {
-                    let s = (chunk_audio_sec / t_end_sec);
+                    let s = chunk_audio_sec / t_end_sec;
                     // Optionally clamp extreme corrections; typical values should be close to 1.0
                     let s_clamped = s.clamp(0.8, 1.25);
                     if (s_clamped - 1.0).abs() > 0.005 { // >0.5% correction
