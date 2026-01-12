@@ -17,7 +17,7 @@ ndarray-npy = { git = "https://github.com/jturner314/ndarray-npy", branch = "mas
 mp3lame-encoder = "0.2.2"
 tracing = "0.1.44"
 uuid = { version = "1.19.0", features = ["v4"] }
-opus = "0.3.1"
+# opus = "0.3.1"
 ogg = "0.9.2"
 
 # Base ONNX Runtime configuration

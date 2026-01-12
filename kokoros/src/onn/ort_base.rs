@@ -1,4 +1,3 @@
-use ort::execution_providers::cpu::CPUExecutionProvider;
 #[cfg(feature = "cuda")]
 use ort::execution_providers::cuda::CUDAExecutionProvider;
 use ort::logging::LogLevel;

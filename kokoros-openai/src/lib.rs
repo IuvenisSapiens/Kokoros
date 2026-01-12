@@ -35,7 +35,7 @@ use futures::stream::StreamExt;
 use kokoros::{
     tts::koko::{InitConfig as TTSKokoInitConfig, TTSKoko},
     utils::mp3::pcm_to_mp3,
-    utils::opus::pcm_to_opus_ogg,
+    // utils::opus::pcm_to_opus_ogg,
     utils::wav::{WavHeader, write_audio_chunk},
 };
 use regex::Regex;
@@ -597,12 +597,12 @@ async fn handle_tts(
 
             ("audio/wav", wav_data, "WAV")
         }
-        AudioFormat::Opus => {
-            let opus_data = pcm_to_opus_ogg(&raw_audio, sample_rate)
-                .map_err(|e| SpeechError::OpusConversion(e))?;
+        // AudioFormat::Opus => {
+        //     let opus_data = pcm_to_opus_ogg(&raw_audio, sample_rate)
+        //         .map_err(|e| SpeechError::OpusConversion(e))?;
 
-            ("audio/opus", opus_data, "OPUS")
-        }
+        //     ("audio/opus", opus_data, "OPUS")
+        // }
         AudioFormat::Mp3 => {
             let mp3_data =
                 pcm_to_mp3(&raw_audio, sample_rate).map_err(|e| SpeechError::Mp3Conversion(e))?;
