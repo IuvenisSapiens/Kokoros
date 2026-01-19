@@ -149,7 +149,7 @@ impl TTSKoko {
         mut mode: ExecutionMode,
     ) -> Result<Option<(Vec<f32>, Vec<WordAlignment>)>, Box<dyn std::error::Error>> {
         let chunks = self.split_text_into_chunks(txt, 500, lan);
-      
+
         let start_chunk_num = chunk_number_start.unwrap_or(0);
 
         let debug_prefix = format_debug_prefix(request_id, instance_id);
@@ -489,7 +489,6 @@ impl TTSKoko {
                 adjusted_counts.iter().sum::<usize>(),
                 target_len
             );
-            sum_counts = adjusted_counts.iter().sum();
         }
 
         // 5) Build the word_map by assigning contiguous spans across the token stream.
